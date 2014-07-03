@@ -21,7 +21,6 @@ private slots:
 
 private:
     Ui::VMC *ui;
-    Metropolis sample;
 };
 
 #endif // VMC_H

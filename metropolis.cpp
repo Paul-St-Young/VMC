@@ -11,7 +11,7 @@ Metropolis::~Metropolis(){
 }
 
 void Metropolis::setup(int myNSTEPS, double mysigma, string mytraj){
-    walker.assign(3,.5);
+    walker.assign(3,0); // start the electron at the nucleus
     sigma   = mysigma;
     NSTEPS  = myNSTEPS;
 
@@ -41,7 +41,7 @@ void Metropolis::evaluate(){
         A = 1<A?1:A;
 
         // accept/reject
-        if (dist_uni(gen)<.5){ // accept move
+        if (dist_uni(gen)<A){ // accept move
             walker[0]=move[0];walker[1]=move[1];walker[2]=move[2];
         } else { // reject move
 
