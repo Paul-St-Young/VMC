@@ -6,7 +6,7 @@ using namespace std;
 
 Wavefunction::Wavefunction()
 {
-    name = "Hydrogen Molecule";
+    _name = "Hydrogen Molecule";
     Z = 2;
 
     // put the 2 H atoms at (0,0,0) and (1.4,0,0)
@@ -17,14 +17,13 @@ Wavefunction::Wavefunction()
     R.push_back(R2);
 }
 
-double Wavefunction::at(vector<vector<double>> v){
+double Wavefunction::at(vector< vector<double> > v){
 
     // check input validity
     if (v.size()!=2){
-        cout << name << " must have " << Z << " electrons - no more, no less" << endl;
-        exit(0);
+        cout << _name << " must have " << Z << " electrons - no more, no less" << endl;
+        throw ElectronNucleiMismatch();
     }
-    const double pi = 3.1415926535897;
 
     // calculate electron-nuclei distances
     vector<double> r(v.size());
@@ -33,7 +32,7 @@ double Wavefunction::at(vector<vector<double>> v){
     }
 
     // return the value of the wave function
-    return 1/sqrt(pi)*exp(-r[0])-1/sqrt(pi)*exp(-r[1]);
+    return 1/sqrt(M_PI)*exp(-r[0])-1/sqrt(M_PI)*exp(-r[1]);
 }
 
 double Wavefunction::distance(vector<double> v1, vector<double> v2){

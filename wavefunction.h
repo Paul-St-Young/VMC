@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#define _USE_MATH_DEFINES
 #include <cmath>
 
 class Wavefunction
@@ -10,15 +11,17 @@ class Wavefunction
 public:
     Wavefunction();
 
-    std::string name;
-    int Z;
+    std::string name(){return _name;};
 
     double at(std::vector<std::vector<double> > v);
+	double distance(std::vector<double> v1, std::vector<double> v2);
 
 private:
-    std::vector<std::vector<double>> R;
-    double distance(std::vector<double> v1, std::vector<double> v2);
+    std::vector< std::vector<double> > R;
+	std::string _name;
+    int Z;
 };
 
 class VectorSizeMismatch{};
+class ElectronNucleiMismatch{};
 #endif // WAVEFUNCTION_H
