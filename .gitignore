@@ -19,6 +19,9 @@
 *.exe
 *.out
 *.app
+<<<<<<< HEAD
 
 # Qt local
 *.pro.user
+=======
+>>>>>>> 0f26251059545b4f46a73312abdfde70ce5d77c5
