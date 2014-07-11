@@ -1,0 +1,79 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      1988,         70]
+NotebookOptionsPosition[      1609,         52]
+NotebookOutlinePosition[      1946,         67]
+CellTagsIndexPosition[      1903,         64]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"traj", "=", 
+   RowBox[{"Import", "[", "\"\<traj.dat\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPointPlot3D", "[", "traj", "]"}]}], "Input",
+ CellChangeTimes->{{3.613321229639268*^9, 3.613321253415906*^9}, {
+  3.6133214449997873`*^9, 3.613321445288412*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"dist", " ", "=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Norm", ",", "traj"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Histogram", "[", "dist", "]"}]}], "Input",
+ CellChangeTimes->{{3.613386062900217*^9, 3.613386067894292*^9}, {
+  3.613386114114294*^9, 3.613386114340158*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dist", "//", "Mean"}]], "Input",
+ CellChangeTimes->{{3.6133908293382607`*^9, 3.6133908324321117`*^9}}],
+
+Cell[BoxData["1.4768925370720218`"], "Output",
+ CellChangeTimes->{{3.6133908327229233`*^9, 3.613390875269145*^9}}]
+}, Open  ]]
+},
+WindowSize->{740, 855},
+WindowMargins->{{Automatic, 118}, {Automatic, 31}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 440, 11, 77, "Input"],
+Cell[1000, 33, 325, 7, 55, "Input"],
+Cell[CellGroupData[{
+Cell[1350, 44, 126, 2, 32, "Input"],
+Cell[1479, 48, 114, 1, 65, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
