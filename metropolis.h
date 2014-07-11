@@ -11,19 +11,29 @@ class Metropolis
 public:
     Metropolis();
     ~Metropolis();
-    void setup(int myNSTEPS=100, double mysigma=0.5, std::string mytraj="traj.dat");
-    void evaluate(); // sample the hydrogen atom 1s orbital
+    void setup(int myNSTEPS=100, double mysigma=0.5, int myN_walker=2);
+    void evaluate();
+
+    double culm_A;
 
 private:
     Wavefunction wfs;
 
-    std::vector<double> walker;
+    int N_walker;
+    std::vector<std::vector<double>> walker;
     double sigma;
     int NSTEPS;
 
-    std::ofstream trajfile;
+    std::ofstream trajfile,datfile;
 
 
 };
+
+#include <ostream>
+template<typename T>
+std::ostream& operator<< (std::ostream& os, const std::vector<T> v) {
+    os << "("; for(int i = 0; i < v.size(); i++) os << v[i] << ", "; os << ")";
+    return os;
+}
 
 #endif // METROPOLIS_H

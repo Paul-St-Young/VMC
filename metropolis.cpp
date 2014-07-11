@@ -8,14 +8,22 @@ Metropolis::Metropolis(){
 
 Metropolis::~Metropolis(){
     trajfile.close();
+    datfile.close();
 }
 
-void Metropolis::setup(int myNSTEPS, double mysigma, string mytraj){
-    walker.assign(3,0); // start the electron at the nucleus
+void Metropolis::setup(int myNSTEPS, double mysigma, int myN_walker){
+    N_walker= myN_walker;
+    for (int i=0;i<myN_walker;i++){
+        vector<double> new_walker(3,0); // start the electrons at the nucleis
+        walker.push_back(new_walker);
+    } walker[1][0]=1.4; // start the electrons at the nucleis
+
     sigma   = mysigma;
     NSTEPS  = myNSTEPS;
+    culm_A  = 0;
 
-    trajfile.open(mytraj);
+    trajfile.open("traj.dat");
+    datfile.open("data.dat");
 }
 
 void Metropolis::evaluate(){
@@ -27,27 +35,40 @@ void Metropolis::evaluate(){
     for (int istep=1;istep<=NSTEPS;istep++){
 
         // record trajectory
-        trajfile << walker[0] << " " << walker[1] << " " << walker[2] << endl;
+        for (int i=0;i<N_walker;i++){
+            for (int j=0;j<walker[0].size();j++){
+                trajfile << walker[i][j] << " ";
+            }trajfile << endl;
+        }
 
         // suggest a new move
-        vector<double> move(3,0);
-        for (int i=0;i<3;i++){
-            move[i]=walker[i]+dist_gauss(gen);
+        vector<vector<double>> move=walker;
+        for (int n=0;n<N_walker;n++){
+            for (int i=0;i<3;i++){
+                move[n][i]+=dist_gauss(gen);
+            }
         }
 
         // calculate Metropolis acceptance rate
+        datfile << istep << ": move=" << move[0] << ", " << move[1]
+                         << "  walker=" << walker[0] << ", " << walker[1] << endl;
+        datfile << "wfs@move^2=" << pow(wfs.at(move),2)
+                         << "  wfs@walker^2=" << pow(wfs.at(walker),2) << endl;
         double A = (wfs.at(move)*wfs.at(move))/
                 (wfs.at(walker)*wfs.at(walker));
+        datfile << A << endl;
+
         A = 1<A?1:A;
+        culm_A+=A;
 
         // accept/reject
         if (dist_uni(gen)<A){ // accept move
-            walker[0]=move[0];walker[1]=move[1];walker[2]=move[2];
+            walker=move;
         } else { // reject move
 
         }
 
     }
 
-
+    culm_A/=(double)NSTEPS;
 }

@@ -11,7 +11,14 @@ public:
     Wavefunction();
 
     std::string name;
-    double at(std::vector<double> v);
+    int Z;
+
+    double at(std::vector<std::vector<double> > v);
+
+private:
+    std::vector<std::vector<double>> R;
+    double distance(std::vector<double> v1, std::vector<double> v2);
 };
 
+class VectorSizeMismatch{};
 #endif // WAVEFUNCTION_H

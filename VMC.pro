@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = VMC
 TEMPLATE = app
 
-QMAKE_CXXFLAGS += -std=c++11 -lm
+QMAKE_CXXFLAGS += -std=c++11 -lm -Wsign-compare
 
 
 SOURCES += main.cpp\

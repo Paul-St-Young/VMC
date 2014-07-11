@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      1988,         70]
-NotebookOptionsPosition[      1609,         52]
-NotebookOutlinePosition[      1946,         67]
-CellTagsIndexPosition[      1903,         64]
+NotebookDataLength[      3195,        106]
+NotebookOptionsPosition[      2806,         88]
+NotebookOutlinePosition[      3151,        103]
+CellTagsIndexPosition[      3108,        100]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,15 +21,51 @@ Notebook[{
 Cell[BoxData[{
  RowBox[{
   RowBox[{"SetDirectory", "[", 
-   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<../build-VMC-Desktop_Qt_5_3_MinGW_32bit-Debug\>\""}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"traj", "=", 
    RowBox[{"Import", "[", "\"\<traj.dat\>\"", "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{"ListPointPlot3D", "[", "traj", "]"}]}], "Input",
+ RowBox[{"ListPointPlot3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1.4", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+     RowBox[{"traj", "[", 
+      RowBox[{"[", "]"}], "]"}]}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Red", ",", 
+        RowBox[{"PointSize", "[", ".03", "]"}]}], "}"}], ",", "Green"}], 
+     "}"}]}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.613321229639268*^9, 3.613321253415906*^9}, {
-  3.6133214449997873`*^9, 3.613321445288412*^9}}],
+   3.6133214449997873`*^9, 3.613321445288412*^9}, {3.61408111050778*^9, 
+   3.61408113153464*^9}, 3.6140812476706514`*^9, {3.614081350999655*^9, 
+   3.6140815497480245`*^9}, {3.6140816624366207`*^9, 
+   3.6140817169851513`*^9}, {3.61408183424797*^9, 3.6140818505745015`*^9}, 
+   3.6140854316027155`*^9}],
 
 Cell[BoxData[{
  RowBox[{
@@ -50,9 +86,9 @@ Cell[BoxData["1.4768925370720218`"], "Output",
  CellChangeTimes->{{3.6133908327229233`*^9, 3.613390875269145*^9}}]
 }, Open  ]]
 },
-WindowSize->{740, 855},
-WindowMargins->{{Automatic, 118}, {Automatic, 31}},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+WindowSize->{740, 816},
+WindowMargins->{{75, Automatic}, {Automatic, 139}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -66,11 +102,11 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 440, 11, 77, "Input"],
-Cell[1000, 33, 325, 7, 55, "Input"],
+Cell[557, 20, 1637, 47, 132, "Input"],
+Cell[2197, 69, 325, 7, 52, "Input"],
 Cell[CellGroupData[{
-Cell[1350, 44, 126, 2, 32, "Input"],
-Cell[1479, 48, 114, 1, 65, "Output"]
+Cell[2547, 80, 126, 2, 31, "Input"],
+Cell[2676, 84, 114, 1, 31, "Output"]
 }, Open  ]]
 }
 ]

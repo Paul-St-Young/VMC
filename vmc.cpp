@@ -25,5 +25,6 @@ void VMC::on_Start_clicked()
     sample.setup(NSTEP,sigma); // defaults: NSTEP=100, sigma=0.5, trajfile="traj.dat"
     ui->Output->append( QString("Running VMC ...") );
     sample.evaluate();
+    ui->culm_A->setText( QString::number(sample.culm_A) );
     ui->Output->append( QString("All done.") );
 }
