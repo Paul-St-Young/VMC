@@ -19,7 +19,7 @@ public:
 private:
     Wavefunction wfs;
 
-    int N_walker;
+    int N; // number of electrons
     std::vector<std::vector<double>> walker;
     double sigma;
     int NSTEPS;

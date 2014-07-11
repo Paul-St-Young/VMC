@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      3195,        106]
-NotebookOptionsPosition[      2806,         88]
-NotebookOutlinePosition[      3151,        103]
-CellTagsIndexPosition[      3108,        100]
+NotebookDataLength[      5119,        159]
+NotebookOptionsPosition[      4688,        140]
+NotebookOutlinePosition[      5033,        155]
+CellTagsIndexPosition[      4990,        152]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -29,6 +29,31 @@ Cell[BoxData[{
   RowBox[{"traj", "=", 
    RowBox[{"Import", "[", "\"\<traj.dat\>\"", "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"even", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"traj", "[", 
+      RowBox[{"[", 
+       RowBox[{"2", "*", "i"}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{
+        RowBox[{"Length", "[", "traj", "]"}], "/", "2"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"odd", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"traj", "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"2", "*", "i"}], "-", "1"}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{
+        RowBox[{"Length", "[", "traj", "]"}], "/", "2"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{"ListPointPlot3D", "[", 
   RowBox[{
    RowBox[{"{", 
@@ -38,34 +63,44 @@ Cell[BoxData[{
        RowBox[{"{", 
         RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
        RowBox[{"{", 
-        RowBox[{"1.4", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
-     RowBox[{"traj", "[", 
-      RowBox[{"[", "]"}], "]"}]}], "}"}], ",", 
-   RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"1.4", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", "odd", ",", 
+     "even"}], "}"}], "\[IndentingNewLine]", ",", 
+   RowBox[{"BoxRatios", "\[Rule]", 
     RowBox[{"{", 
-     RowBox[{
+     RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{",", 
+     RowBox[{"PlotRange", "\[Rule]", 
       RowBox[{"{", 
        RowBox[{
-        RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "}"}]}]}], "*)"}], 
+   "\[IndentingNewLine]", ",", 
    RowBox[{"PlotStyle", "\[Rule]", 
     RowBox[{"{", 
      RowBox[{
       RowBox[{"{", 
        RowBox[{"Red", ",", 
-        RowBox[{"PointSize", "[", ".03", "]"}]}], "}"}], ",", "Green"}], 
-     "}"}]}]}], "]"}]}], "Input",
+        RowBox[{"PointSize", "[", ".03", "]"}]}], "}"}], ",", "Blue", ",", 
+      "Blue"}], "}"}]}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.613321229639268*^9, 3.613321253415906*^9}, {
    3.6133214449997873`*^9, 3.613321445288412*^9}, {3.61408111050778*^9, 
    3.61408113153464*^9}, 3.6140812476706514`*^9, {3.614081350999655*^9, 
    3.6140815497480245`*^9}, {3.6140816624366207`*^9, 
    3.6140817169851513`*^9}, {3.61408183424797*^9, 3.6140818505745015`*^9}, 
-   3.6140854316027155`*^9}],
+   3.6140854316027155`*^9, {3.614096404040306*^9, 3.6140964046677504`*^9}, {
+   3.6140965339810553`*^9, 3.614096562061887*^9}, {3.6140966384808607`*^9, 
+   3.614096661970453*^9}, 3.6140970310071287`*^9, {3.614097247409972*^9, 
+   3.614097250217955*^9}, {3.6140974739179535`*^9, 3.6140974762886286`*^9}, {
+   3.6141014969635167`*^9, 3.6141016164859343`*^9}, {3.6141042218870296`*^9, 
+   3.6141042608025045`*^9}, {3.614104307677623*^9, 3.614104308139945*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -84,10 +119,27 @@ Cell[BoxData[
 
 Cell[BoxData["1.4768925370720218`"], "Output",
  CellChangeTimes->{{3.6133908327229233`*^9, 3.613390875269145*^9}}]
-}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Plot3D", "[", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["x", "2"], "+", 
+       SuperscriptBox["y", "2"]}], ")"}]}]], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", 
+     RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.614096883480932*^9, 3.614096934352862*^9}}]
 },
 WindowSize->{740, 816},
-WindowMargins->{{75, Automatic}, {Automatic, 139}},
+WindowMargins->{{41, Automatic}, {Automatic, 103}},
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -102,12 +154,13 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 1637, 47, 132, "Input"],
-Cell[2197, 69, 325, 7, 52, "Input"],
+Cell[557, 20, 3028, 82, 192, "Input"],
+Cell[3588, 104, 325, 7, 52, "Input"],
 Cell[CellGroupData[{
-Cell[2547, 80, 126, 2, 31, "Input"],
-Cell[2676, 84, 114, 1, 31, "Output"]
-}, Open  ]]
+Cell[3938, 115, 126, 2, 31, "Input"],
+Cell[4067, 119, 114, 1, 31, "Output"]
+}, Open  ]],
+Cell[4196, 123, 488, 15, 43, "Input"]
 }
 ]
 *)

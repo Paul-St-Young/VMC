@@ -26,13 +26,20 @@ double Wavefunction::at(vector< vector<double> > v){
     }
 
     // calculate electron-nuclei distances
-    vector<double> r(v.size());
-    for (unsigned int n=0;n<v.size();n++){
-        r[n]=distance(v[n],R[n]);
+    vector< vector<double> > r(v.size());
+    for (unsigned int i=0;i<v.size();i++) r[i].assign(v.size(),0);
+    for (unsigned int i=0;i<v.size();i++){
+        for (unsigned int j=0;j<v.size();j++){
+            r[i][j]=distance(v[i],R[j]);
+        }
     }
 
+    double psi11=exp(-r[0][0])+exp(-r[0][1]);
+    double psi12=exp(-r[1][0])+exp(-r[1][1]);
+    double psi21=exp(-r[0][0])-exp(-r[0][1]);
+    double psi22=exp(-r[1][0])-exp(-r[1][1]);
     // return the value of the wave function
-    return 1/sqrt(M_PI)*exp(-r[0])-1/sqrt(M_PI)*exp(-r[1]);
+    return psi21*psi22;
 }
 
 double Wavefunction::distance(vector<double> v1, vector<double> v2){
