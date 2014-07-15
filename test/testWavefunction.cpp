@@ -52,7 +52,7 @@ TEST(WavefunctionTest,ValueH2Nuclei){
 TEST(WavefunctionTest,ValueOrigin){
 	Wavefunction wf;
 	
-	// put electrons at the nuclei
+	// put electrons at the origin
 	vector<double> v1(3,0);
 	vector<double> v2(3,0);
 	vector< vector<double> > v;
@@ -65,11 +65,38 @@ TEST(WavefunctionTest,ValueOrigin){
 TEST(WavefunctionTest,ValueMiddle){
 	Wavefunction wf;
 	
-	// put electrons at the nuclei
 	vector<double> v1(3,0);
 	vector<double> v2(3,0);
 	v1[0]=0.7;
 	v2[0]=0.7;
+	vector< vector<double> > v;
+	v.push_back(v1);
+	v.push_back(v2);
+	
+	EXPECT_EQ(0,wf.at(v));
+}
+
+TEST(WavefunctionTest,ValueFarLeft){
+	Wavefunction wf;
+	
+	vector<double> v1(3,0);
+	vector<double> v2(3,0);
+	v1[0]=-1000;
+	v2[0]=-1000;
+	vector< vector<double> > v;
+	v.push_back(v1);
+	v.push_back(v2);
+	
+	EXPECT_EQ(0,wf.at(v));
+}
+
+TEST(WavefunctionTest,ValueFarRight){
+	Wavefunction wf;
+	
+	vector<double> v1(3,0);
+	vector<double> v2(3,0);
+	v1[0]=1000;
+	v2[0]=1000;
 	vector< vector<double> > v;
 	v.push_back(v1);
 	v.push_back(v2);
