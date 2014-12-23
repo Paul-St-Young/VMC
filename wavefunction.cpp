@@ -39,7 +39,7 @@ double Wavefunction::at(vector< vector<double> > v){
     double psi21=exp(-r[0][0])-exp(-r[0][1]);
     double psi22=exp(-r[1][0])-exp(-r[1][1]);
     // return the value of the wave function
-    return psi21*psi22;
+    return psi11*psi12;
 }
 
 double Wavefunction::distance(vector<double> v1, vector<double> v2){

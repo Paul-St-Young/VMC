@@ -27,7 +27,6 @@ void Metropolis::setup(int myNSTEPS, double mysigma, int myN){
 }
 
 void Metropolis::evaluate(){
-    random_device rd;
     mt19937 gen(rd());
     uniform_real_distribution<double> dist_uni(0.0,1.0);
     normal_distribution<double> dist_gauss(0,sigma);

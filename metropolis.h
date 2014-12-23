@@ -24,6 +24,7 @@ private:
     double sigma;
     int NSTEPS;
 
+    std::random_device rd;
     std::ofstream trajfile,datfile;
 
 
